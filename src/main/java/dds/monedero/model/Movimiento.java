@@ -29,7 +29,7 @@ public class Movimiento {
   }
 
   public Boolean fueExtraido(LocalDate fecha) {
-    return isExtraccion() && esDeLaFecha(fecha);
+    return !isDeposito() && esDeLaFecha(fecha);
   }
 
   public Boolean esDeLaFecha(LocalDate fecha) {
@@ -38,10 +38,6 @@ public class Movimiento {
 
   public Boolean isDeposito() {
     return esDeposito;
-  }
-
-  public Boolean isExtraccion() {
-    return !esDeposito;
   }
 
   public void agregateA(Cuenta cuenta) {
