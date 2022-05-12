@@ -31,7 +31,7 @@ public class Cuenta {
       throw new MontoNegativoException(cuanto + ": el monto a ingresar debe ser un valor positivo");
     }
 
-    if (getMovimientos().stream().filter(movimiento -> movimiento.isDeposito()).count() >= 3) {
+    if (cantidadDeDepositos() >= 3) {
       throw new MaximaCantidadDepositosException("Ya excedio los " + 3 + " depositos diarios");
     }
 
@@ -76,6 +76,10 @@ public class Cuenta {
 
   public void setSaldo(Double saldo) {
     this.saldo = saldo;
+  }
+
+  public long cantidadDeDepositos(){
+    return this.movimientos.stream().filter(movimiento -> movimiento.isDeposito()).count();
   }
 
 }
