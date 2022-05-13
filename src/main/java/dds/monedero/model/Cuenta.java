@@ -44,6 +44,7 @@ public class Cuenta {
     depositoDisponible();
 
     this.depositos.add(new Deposito(LocalDate.now(), cuanto));
+    setSaldo(getSaldo()+cuanto);
   }
 
   public void sacar(Double cuanto) {
@@ -52,6 +53,7 @@ public class Cuenta {
     limite1000(cuanto);
 
     this.extraccion.add(new Extraccion(LocalDate.now(), cuanto));
+    setSaldo(getSaldo()-cuanto);
   }
 
 
