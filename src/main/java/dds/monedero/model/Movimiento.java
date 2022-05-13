@@ -2,18 +2,13 @@ package dds.monedero.model;
 
 import java.time.LocalDate;
 
-public class Movimiento {
+public abstract class Movimiento {
   private LocalDate fecha;
-  // Nota: En ningún lenguaje de programación usen jamás Doubles (es decir, números con punto flotante) para modelar dinero en el mundo real.
-  // En su lugar siempre usen numeros de precision arbitraria o punto fijo, como BigDecimal en Java y similares
-  // De todas formas, NO es necesario modificar ésto como parte de este ejercicio. 
   private Double monto;
-  private Boolean esDeposito;
 
-  public Movimiento(LocalDate fecha, Double monto, Boolean esDeposito) {
+  public Movimiento(LocalDate fecha, Double monto) {
     this.fecha = fecha;
     this.monto = monto;
-    this.esDeposito = esDeposito;
   }
 
   public Double getMonto() {
