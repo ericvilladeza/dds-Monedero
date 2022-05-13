@@ -19,34 +19,15 @@ public abstract class Movimiento {
     return fecha;
   }
 
-  public Boolean fueDepositado(LocalDate fecha) {
-    return isDeposito() && esDeLaFecha(fecha);
-  }
-
-  public Boolean fueExtraido(LocalDate fecha) {
-    return !isDeposito() && esDeLaFecha(fecha);
-  }
-
   public Boolean esDeLaFecha(LocalDate fecha) {
     return this.fecha.equals(fecha);
   }
 
-  public Boolean isDeposito() {
-    return esDeposito;
-  }
 
-  public void agregateA(Cuenta cuenta) {
-    cuenta.setSaldo(calcularValor(cuenta));
-    cuenta.agregarMovimiento(fecha, monto, esDeposito);
-  }
 
-  public Double calcularValor(Cuenta cuenta) {
-    if (esDeposito) {
-      return cuenta.getSaldo() + getMonto();
-    } else {
-      return cuenta.getSaldo() - getMonto();
-    }
-  }
+
+
+
 
 
 
